@@ -1,0 +1,4 @@
+{
+	"python.pythonPath": "C:\\Users\\Doug\\.virtualenvs\\asms-flask-q2clcNLa\\Scripts\\python.exe",
+	"python.formatting.autopep8Args": ["--ignore", "E402"]
+}
