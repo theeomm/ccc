@@ -9,7 +9,7 @@ from flask_jwt import JWT
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 MIGRATIONS_DIR = os.path.join(BASE_DIR, '../migrations')
 DB_PATH = os.path.join(BASE_DIR, '../db.sqlite')
-DB_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+DB_URI = os.environ.get('DATABASE_URL')
 
 # APP CONFIG
 app = Flask(__name__)
