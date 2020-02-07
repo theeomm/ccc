@@ -31,6 +31,7 @@ class Class(db.Model):
     def __repr__(self):
         return f"{self.grade} - {self.year}"
 
+
 class Subject(db.Model):
 
     __tablename__ = 'subjects'

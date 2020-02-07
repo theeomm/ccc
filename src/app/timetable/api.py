@@ -13,8 +13,6 @@ from .schema import (
 )
 
 
-
-
 class SessionAPI(MethodView):
 
     def post(self):
@@ -168,6 +166,7 @@ class ClassAPI(MethodView):
         db.session.commit()
 
         return ClassSchema().dump(klass)
+
 
 class SubjectAPI(MethodView):
 

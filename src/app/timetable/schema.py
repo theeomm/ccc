@@ -1,12 +1,14 @@
 from app import ma
 from .models import Subject, Session, Class
 
+
 class ClassSchema(ma.ModelSchema):
     """
     Class model schema
     """
     class Meta:
         model = Class
+
 
 class SubjectSchema(ma.ModelSchema):
     """

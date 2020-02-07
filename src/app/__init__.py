@@ -9,13 +9,14 @@ from flask_jwt import JWT
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 MIGRATIONS_DIR = os.path.join(BASE_DIR, '../migrations')
 DB_PATH = os.path.join(BASE_DIR, '../db.sqlite')
+DB_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
 # APP CONFIG
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "devkey"
 
 # DATABASE CONFIG
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DB_PATH}"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DB_PATH}" if DB_URI is None else DB_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
