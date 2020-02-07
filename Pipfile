@@ -15,6 +15,7 @@ flask-sqlalchemy = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
 flask-migrate = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
