@@ -5,18 +5,28 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_security import Security, SQLAlchemyUserDatastore
 from flask_jwt import JWT
+from flask_cors import CORS
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 MIGRATIONS_DIR = os.path.join(BASE_DIR, '../migrations')
 DB_PATH = os.path.join(BASE_DIR, '../db.sqlite')
+# Environment Variables
 DB_URI = os.environ.get('DATABASE_URL')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # APP CONFIG
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "devkey"
+DEBUG = app.config['DEBUG']
+app.config['SECRET_KEY'] = "devkey" if DEBUG else SECRET_KEY
+
+# Cors
+CORS(app)
 
 # DATABASE CONFIG
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DB_PATH}" if DB_URI is None else DB_URI
+if DEBUG:
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DB_PATH}"
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)

@@ -18,6 +18,7 @@ flask-migrate = "*"
 gunicorn = "*"
 flask-jwt = "*"
 psycopg2 = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"
