@@ -17,6 +17,7 @@ marshmallow-sqlalchemy = "*"
 flask-migrate = "*"
 gunicorn = "*"
 flask-jwt = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
